@@ -1,65 +1,101 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from "react";
+import AssignmentView from "@/components/AssignmentView";
 
 export default function Home() {
-  return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+  const [studentName, setStudentName] = useState("");
+  const [rollNumber, setRollNumber] = useState("");
+  const [enrolmentNumber, setEnrolmentNumber] = useState("");
+  const [generated, setGenerated] = useState(false);
+
+  const handleGenerate = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (studentName.trim() && rollNumber.trim() && enrolmentNumber.trim()) {
+      setGenerated(true);
+    }
+  };
+
+  if (generated) {
+    return (
+      <main className="min-h-screen bg-gray-50 py-8 px-4 flex flex-col items-center">
+        <AssignmentView
+          studentName={studentName}
+          rollNumber={rollNumber}
+          enrolmentNumber={enrolmentNumber}
+          onBack={() => setGenerated(false)}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
       </main>
-    </div>
+    );
+  }
+
+  return (
+    <main className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8 border border-gray-100">
+        <div className="text-center mb-8">
+          <h1 className="text-3xl font-extrabold text-blue-900 mb-2">Java Lab Generator</h1>
+          <p className="text-gray-500">Enter your details to generate your realistic lab assignment record.</p>
+        </div>
+
+        <form onSubmit={handleGenerate} className="space-y-6">
+          <div>
+            <label htmlFor="studentName" className="block text-sm font-medium text-gray-700 mb-1">
+              Student Full Name. ....
+            </label>
+            <input
+              type="text"
+              id="studentName"
+              value={studentName}
+              onChange={(e) => setStudentName(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm outline-none"
+              placeholder="e.g. HUZEFA BIN JUNED"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="rollNumber" className="block text-sm font-medium text-gray-700 mb-1">
+              Roll Number
+            </label>
+            <input
+              type="text"
+              id="rollNumber"
+              value={rollNumber}
+              onChange={(e) => setRollNumber(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm outline-none"
+              placeholder="e.g. 25MMCA016HY"
+            />
+          </div>
+
+          <div>
+            <label htmlFor="enrolmentNumber" className="block text-sm font-medium text-gray-700 mb-1">
+              Enrolment Number
+            </label>
+            <input
+              type="text"
+              id="enrolmentNumber"
+              value={enrolmentNumber}
+              onChange={(e) => setEnrolmentNumber(e.target.value)}
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm outline-none"
+              placeholder="e.g. A250015"
+            />
+          </div>
+
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 font-bold text-white py-3 px-4 rounded-lg shadow-md transition-colors duration-200 mt-4"
+          >
+            Generate Full 21-Program Assignment
+          </button>
+        </form>
+
+        <div className="mt-8 text-xs text-center text-gray-400">
+          <p>Generates realistic terminal logs and printable PDF</p>
+          <p>Format tailored for MANUU CS & IT Dept.</p>
+        </div>
+      </div>
+    </main>
   );
 }
