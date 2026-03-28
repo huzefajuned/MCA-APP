@@ -16,8 +16,11 @@ interface AssignmentViewProps {
 export default function AssignmentView({ studentName, rollNumber, enrolmentNumber, onBack }: AssignmentViewProps) {
   
   const handleDownloadPDF = () => {
-    // Native print is much better for multi-page complex layouts than html2pdf
+    // Change document title to force PDF download name
+    const originalTitle = document.title;
+    document.title = `${studentName.trim() || 'Student_Lab_Record'}.pdf`;
     window.print();
+    setTimeout(() => { document.title = originalTitle; }, 500);
   };
 
   return (
@@ -38,8 +41,22 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         </button>
       </div>
 
+      <style dangerouslySetInnerHTML={{ __html: `
+        @media print {
+          @page { size: A4; margin: 0; }
+          html, body {
+            width: 210mm;
+            height: auto;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
+          }
+          body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+      `}} />
+
       <div 
-        id="printable-assignment" 
+        id="printable-lab-record" 
         className="bg-white shadow-xl print:shadow-none print:w-full"
       >
         {/* COVER PAGE */}
@@ -222,7 +239,7 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
                 
                 <div className="mb-8">
                   <h4 className="font-bold text-gray-800 mb-3 border-l-4 border-gray-400 pl-2">Source Code:</h4>
-                  <pre className="bg-[#f8f9fa] border border-gray-300 rounded p-5 text-[15px] font-mono text-gray-900 overflow-x-auto whitespace-pre-wrap leading-relaxed">
+                  <pre className="bg-white border border-gray-300 rounded p-5 text-[15px] font-mono text-gray-900 overflow-x-auto whitespace-pre-wrap leading-relaxed">
                     <code>{actualCode}</code>
                   </pre>
                 </div>

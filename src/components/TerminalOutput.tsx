@@ -10,7 +10,7 @@ interface TerminalOutputProps {
   forceComplete?: boolean;
 }
 
-export default function TerminalOutput({ studentName, filename, outputResult, terminalColor = '#00ff00', forceComplete = false }: TerminalOutputProps) {
+export default function TerminalOutput({ studentName, filename, outputResult, forceComplete = false }: TerminalOutputProps) {
   const [lines, setLines] = useState<string[]>([]);
   const [typing, setTyping] = useState(true);
 
@@ -73,14 +73,14 @@ export default function TerminalOutput({ studentName, filename, outputResult, te
   }, [outputResult, filename, safeName]);
 
   return (
-    <div className="bg-[#0c0c0c] font-mono text-xs sm:text-sm p-4 rounded-md shadow-inner mt-4 overflow-x-auto min-h-[160px] border border-gray-800" style={{ color: terminalColor }}>
+    <div className="bg-gray-100 text-gray-900 font-mono text-[13.5px] p-5 rounded-md mt-4 overflow-x-auto min-h-[120px] border border-gray-300 print:bg-gray-50 print:border-gray-300">
       {lines.map((line, idx) => (
-        <div key={idx} className="min-h-[20px] whitespace-pre-wrap break-all">
-          {line === 'compiling...' ? <span className="text-gray-400 italic">{line}</span> : line}
+        <div key={idx} className="min-h-[20px] whitespace-pre-wrap break-all leading-relaxed">
+          {line === 'compiling...' ? <span className="text-gray-500 italic">{line}</span> : line}
         </div>
       ))}
       {typing && (
-        <div className="inline-block w-2.5 h-4 animate-pulse ml-1" style={{ backgroundColor: terminalColor }}></div>
+        <div className="inline-block w-2.5 h-4 animate-pulse ml-1 bg-gray-900"></div>
       )}
     </div>
   );

@@ -34,7 +34,7 @@ export default function Home() {
       <div className="max-w-md w-full bg-white rounded-lg shadow-xl p-8 border border-gray-100">
         <div className="text-center mb-8">
           <h1 className="text-3xl font-extrabold text-blue-900 mb-2">Java Lab Generator</h1>
-          <p className="text-gray-500">Enter your details to generate your realistic lab assignment record.</p>
+          <p className="text-gray-500">Enter your details to generate your realistic lab record.</p>
         </div>
 
         <form onSubmit={handleGenerate} className="space-y-6">
@@ -87,7 +87,7 @@ export default function Home() {
             type="submit"
             className="w-full bg-blue-600 hover:bg-blue-700 font-bold text-white py-3 px-4 rounded-lg shadow-md transition-colors duration-200 mt-4"
           >
-            Generate Full 21-Program Assignment
+            Generate Full 21-Program Lab Record
           </button>
         </form>
 
