@@ -40,7 +40,7 @@ export default function Home() {
         <form onSubmit={handleGenerate} className="space-y-6">
           <div>
             <label htmlFor="studentName" className="block text-sm font-medium text-gray-700 mb-1">
-              Student Full Name. ....
+              Student Full Name
             </label>
             <input
               type="text"
@@ -49,7 +49,7 @@ export default function Home() {
               onChange={(e) => setStudentName(e.target.value)}
               required
               className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm outline-none"
-              placeholder="e.g. HUZEFA BIN JUNED"
+              placeholder="e.g. HUZEFA BIN JUNED "
             />
           </div>
 
