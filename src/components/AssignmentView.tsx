@@ -60,48 +60,47 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         id="printable-lab-record"
         className="bg-white shadow-xl print:shadow-none print:w-full"
       >
-        {/* COVER PAGE */}
-        <div className="flex flex-col items-center min-h-[1050px] print:min-h-[260mm] text-center pb-12 break-after-page font-sans bg-white relative print:px-12 print:py-10 print:border-none box-border">
-          <h3 className="text-[1.1rem] font-bold mt-[2.5rem] print:mt-[1rem] mb-2 text-gray-900">A Lab Manual For</h3>
-          <h1 className="text-[1.8rem] font-extrabold text-[#3a5b88] mb-2 uppercase tracking-wide">JAVA PROGRAMMING LAB</h1>
-          <h2 className="text-[1.2rem] font-bold text-[#3a5b88] mb-8 tracking-widest">{rollNumber}</h2>
+        <div className="flex flex-col items-center min-h-[1050px] print:min-h-[260mm] text-center pb-12 print:pb-0 break-after-page font-sans bg-white relative print:px-12 print:py-8 print:border-none box-border">
+          <h3 className="text-[1.1rem] font-bold mt-[2.5rem] print:mt-0 mb-2 text-gray-900">A Lab Manual For</h3>
+          <h1 className="text-[1.8rem] font-extrabold text-[#3a5b88] mb-2 print:mb-1 uppercase tracking-wide">JAVA PROGRAMMING LAB</h1>
+          <h2 className="text-[1.2rem] font-bold text-[#3a5b88] mb-8 print:mb-4 tracking-widest">{rollNumber}</h2>
 
-          <p className="text-[1.05rem] font-medium text-gray-900 mb-6 max-w-3xl mx-auto uppercase leading-snug">
+          <p className="text-[1.05rem] font-medium text-gray-900 mb-6 print:mb-4 max-w-3xl mx-auto uppercase leading-snug">
             A RECORD SUBMITTED IN PARTIAL FULFILLMENT OF THE REQUIREMENTS<br />FOR &quot;JAVA PROGRAMMING LAB&quot; OF
           </p>
 
-          <h3 className="text-[1.15rem] font-bold text-[#b54646] uppercase mb-6 tracking-wide">MASTER OF COMPUTER APPLICATION</h3>
+          <h3 className="text-[1.15rem] font-bold text-[#b54646] uppercase mb-6 print:mb-4 tracking-wide">MASTER OF COMPUTER APPLICATION</h3>
 
-          <div className="text-[1.1rem] font-medium mb-3">1<sup className="text-xs">ST</sup> Year /2<sup className="text-xs">ND</sup> Semester</div>
-          <div className="text-[1.1rem] font-medium mb-4">2025-27</div>
+          <div className="text-[1.1rem] font-medium mb-3 print:mb-2">1<sup className="text-xs">ST</sup> Year /2<sup className="text-xs">ND</sup> Semester</div>
+          <div className="text-[1.1rem] font-medium mb-4 print:mb-2">2025-27</div>
 
-          <h4 className="text-[1.1rem] font-medium mb-4">By</h4>
+          <h4 className="text-[1.1rem] font-medium mb-4 print:mb-2">By</h4>
 
           {/* Highlighted sections */}
-          <div className="mb-4 text-lg">
+          <div className="mb-4 print:mb-2 text-lg">
             <span className="bg-yellow-200 px-3 py-1 font-bold inline-block whitespace-nowrap">{studentName}</span>
           </div>
-          <div className="mb-4 text-[1.1rem]">
+          <div className="mb-4 print:mb-2 text-[1.1rem]">
             Roll Number: <span className="bg-yellow-200 px-3 py-1 font-bold">{rollNumber}</span>
           </div>
-          <div className="mb-8 text-[1.1rem]">
+          <div className="mb-8 print:mb-4 text-[1.1rem]">
             Enrolment Number: <span className="bg-yellow-200 px-3 py-1 font-bold">{enrolmentNumber}</span>
           </div>
 
-          <div className="mb-[1.5rem]">
-            <div className="text-[1.1rem] font-medium mb-[1.5rem]">Submitted to</div>
+          <div className="mb-[1.5rem] print:mb-3">
+            <div className="text-[1.1rem] font-medium mb-[1.5rem] print:mb-2">Submitted to</div>
             <h3 className="text-[1.15rem] font-bold mb-1">Mr. Mohatesham Pasha Quadri</h3>
             <p className="text-[1.1rem] mb-1">Assistant Professor</p>
             <p className="text-[1.1rem]">Department of CS & IT, MANUU</p>
           </div>
 
           {/* Logo */}
-          <div className="my-[1.5rem]">
-            <img src="/logo.png" alt="MANUU Logo" className="h-[120px] object-contain" />
+          <div className="my-[1.5rem] print:my-2">
+            <img src="/logo.png" alt="MANUU Logo" className="h-[120px] print:h-[90px] object-contain" />
           </div>
 
           <div className="text-center w-full relative z-10 px-8">
-            <h3 className="text-[1.2rem] font-medium text-[#b54646] uppercase mb-4 tracking-wide border-b-[1.5px] border-[#b54646] inline-block pb-1">SCHOOL OF TECHNOLOGY</h3>
+            <h3 className="text-[1.2rem] font-medium text-[#b54646] uppercase mb-2 tracking-wide border-b-[1.5px] border-[#b54646] inline-block pb-1">SCHOOL OF TECHNOLOGY</h3>
             <div className="text-[0.95rem] font-medium mb-1 tracking-wide">DEPARTMENT OFCOMPUTERSCIENCE&INFORMATIONTECHNOLOGY</div>
             {/* <h2 className="text-[1.7rem] font-extrabold uppercase mb-2">MAULANA AZAD NATIONAL URDU UNIVERSITY</h2> */}
             <h2 className="text-[1.7rem] font-extrabold uppercase mb-2">MAULANA AZAD NATIONAL URDU UNIVERSITY</h2>
@@ -122,27 +121,27 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
           {/* <div className="text-[0.95rem] font-medium mb-8 text-center w-full tracking-wide">
             Gachibowli, Hyderabad-500032, T.S. <a href="http://www.mannu.edu.in" className="text-[#3a5b88] underline">www.mannu.edu.in</a>
           </div> */}
-          <div className="flex justify-center mb-10">
-            <img src="/logo.png" alt="MANUU Logo" className="h-[130px] object-contain" />
+          <div className="flex justify-center mb-6 print:mb-4">
+            <img src="/logo.png" alt="MANUU Logo" className="h-[130px] print:h-[100px] object-contain" />
           </div>
-          <h2 className="text-[1.35rem] font-extrabold text-[#002060] uppercase mb-10 tracking-wide leading-snug">
+          <h2 className="text-[1.35rem] font-extrabold text-[#002060] uppercase mb-10 print:mb-6 tracking-wide leading-snug">
             DEPARTMENT OF<br />COMPUTER SCIENCE & INFORMATION TECHNOLOGY
           </h2>
 
-          <h1 className="text-[3.5rem] font-normal mb-20 leading-none">Certificate</h1>
+          <h1 className="text-[3.5rem] font-normal mb-20 print:mb-12 leading-none">Certificate</h1>
 
-          <div className="text-[1.25rem] leading-[2.6] text-justify px-10 mb-28 italic">
+          <div className="text-[1.25rem] leading-[2.6] text-justify px-10 mb-28 print:mb-16 italic">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Certified that this is the Bonafide <strong className="font-bold">Java Programming Lab ({rollNumber})</strong> Record of Mr./Ms. <strong className="font-bold bg-yellow-200 px-2 py-1">{studentName}</strong>, Roll No <strong className="font-bold bg-yellow-200 px-2 py-1">{rollNumber}</strong>, <strong className="font-bold">MCA I Year, II Semester</strong>, of the academic year <em className="not-italic">2025-26</em>.
           </div>
 
-          <div className="flex justify-center font-bold text-[1.1rem] mb-40 italic mt-8">
+          <div className="flex justify-center font-bold text-[1.1rem] mb-40 print:mb-20 italic mt-8 print:mt-4">
             <div className="text-center">
               <div>Head,</div>
               <div>Department of CS & IT</div>
             </div>
           </div>
 
-          <div className="w-full flex justify-between font-bold text-[1.1rem] px-12 mt-auto mb-20 italic">
+          <div className="w-full flex justify-between font-bold text-[1.1rem] px-12 mt-auto mb-20 print:mb-10 italic">
             <div className="text-left">
               <div className="mb-1">Internal</div>
               <div>Examiner</div>
