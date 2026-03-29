@@ -61,8 +61,8 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         className="bg-white shadow-xl print:shadow-none print:w-full"
       >
         {/* COVER PAGE */}
-        <div className="flex flex-col items-center min-h-[1050px] print:min-h-[260mm] text-center pb-12 break-after-page font-sans bg-white relative print:p-0 print:border-none box-border">
-          <h3 className="text-[1.1rem] font-bold mt-[2.5rem] print:mt-[2rem] mb-2 text-gray-900">A Lab Manual For</h3>
+        <div className="flex flex-col items-center min-h-[1050px] print:min-h-[260mm] text-center pb-12 break-after-page font-sans bg-white relative print:px-12 print:py-10 print:border-none box-border">
+          <h3 className="text-[1.1rem] font-bold mt-[2.5rem] print:mt-[1rem] mb-2 text-gray-900">A Lab Manual For</h3>
           <h1 className="text-[1.8rem] font-extrabold text-[#3a5b88] mb-2 uppercase tracking-wide">JAVA PROGRAMMING LAB</h1>
           <h2 className="text-[1.2rem] font-bold text-[#3a5b88] mb-8 tracking-widest">{rollNumber}</h2>
 
@@ -118,7 +118,7 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         </div>
 
         {/* CERTIFICATE PAGE */}
-        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-[3rem] text-center pb-12 break-after-page font-sans bg-white relative px-10 print:p-0 print:border-none box-border">
+        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-[3rem] text-center pb-12 break-after-page font-sans bg-white relative px-10 print:px-12 print:py-10 print:border-none box-border">
           {/* <div className="text-[0.95rem] font-medium mb-8 text-center w-full tracking-wide">
             Gachibowli, Hyderabad-500032, T.S. <a href="http://www.mannu.edu.in" className="text-[#3a5b88] underline">www.mannu.edu.in</a>
           </div> */}
@@ -161,7 +161,7 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         </div>
 
         {/* INDEX PAGE 1 */}
-        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-12 pb-12 break-after-page font-sans bg-white relative px-10 print:p-0 print:border-none box-border">
+        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-12 pb-12 break-after-page font-sans bg-white relative px-10 print:px-12 print:py-10 print:border-none box-border">
           <div className="text-center mb-6">
             <h2 className="text-[1.6rem] font-bold text-[#1f4e79] mb-3">انڈیکس / INDEX</h2>
             <h2 className="text-[1.6rem] font-bold text-[#1f4e79]">ریکارڈ عملی لیب / LAB PRACTICE RECORD</h2>
@@ -199,7 +199,7 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         </div>
 
         {/* INDEX PAGE 2 */}
-        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-[3rem] pb-12 break-after-page font-sans bg-white relative px-10 print:p-0 print:border-none print:mt-0 box-border mt-[0.5rem]">
+        <div className="flex flex-col min-h-[1050px] print:min-h-[260mm] pt-[3rem] pb-12 break-after-page font-sans bg-white relative px-10 print:px-12 print:py-10 print:border-none print:mt-0 box-border mt-[0.5rem]">
           <div className="w-full border-[1.5px] border-black border-t-[1.5px]">
             {Array.from({ length: 24 }).map((_, i) => {
               const programIndex = i + 18;
@@ -224,7 +224,7 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
         </div>
 
         {/* PROGRAMS LIST */}
-        <div className="p-8 sm:p-12 print:p-8 pt-[3rem] print:pt-[1rem] break-inside-avoid">
+        <div className="p-8 sm:p-12 print:p-12 pt-[3rem] print:pt-10 break-inside-avoid box-border">
 
           {programs.map((prog, index) => {
             // Generate the dynamic output using the utility function
@@ -245,12 +245,15 @@ export default function AssignmentView({ studentName, rollNumber, enrolmentNumbe
                   </pre>
                 </div>
 
-                <div className="mt-6">
-                  <TerminalOutput
-                    studentName={studentName}
-                    filename={prog.filename}
-                    outputResult={generatedOutput}
-                  />
+                <div className="mt-8 break-inside-avoid print:break-inside-avoid" style={{ pageBreakInside: 'avoid' }}>
+                  <h4 className="font-bold text-gray-800 mb-4 border-l-4 border-blue-500 pl-3">Output Screenshot:</h4>
+                  <div className="bg-[#f0f2f5] print:bg-[#f0f2f5] p-3 sm:p-5 rounded-xl border border-[#d1d5db] print:border-[#d1d5db] shadow-inner">
+                    <TerminalOutput
+                      studentName={studentName}
+                      filename={prog.filename}
+                      outputResult={generatedOutput}
+                    />
+                  </div>
                 </div>
               </div>
             );
